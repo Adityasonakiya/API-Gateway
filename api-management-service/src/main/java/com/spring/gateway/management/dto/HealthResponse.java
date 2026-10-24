@@ -1,5 +1,7 @@
 package com.spring.gateway.management.dto;
 
+import java.time.LocalDateTime;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,9 +10,8 @@ import lombok.Setter;
 @Getter 
 @Setter 
 public class HealthResponse {
-    private String serviceName;
-    private String serviceDescription;
-    private String status;
-
+    private String serviceStatus;
+    private String dbStatus;
+    private LocalDateTime timeStamp;
 }
 

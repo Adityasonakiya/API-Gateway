@@ -1,0 +1,5 @@
+Use gatekeeper_management;
+
+INSERT INTO roles (name) VALUES ('PLATFORM_ADMIN');
+INSERT INTO roles (name) VALUES ('TENANT_ADMIN');
+INSERT INTO roles (name) VALUES ('GATEWAY_SERVICE');
