@@ -1,4 +1,4 @@
-package com.spring.gateway.management.dto;
+package com.spring.gateway.management.dto.responseDto;
 
 import java.time.LocalDateTime;
 
