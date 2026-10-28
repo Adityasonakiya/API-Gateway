@@ -41,10 +41,10 @@ public class AuthenticationService {
     @Transactional(readOnly = true)
     public LoginResponse login(LoginRequest loginRequest) {
         ManagementUser user = managementUserRepository.findByUsername(loginRequest.getUsername())
-                .orElseThrow(() -> new ApiException(HttpStatus.UNAUTHORIZED, "Invalid username or password"));
-
-        if (!user.isEnabled() || passwordEncoder.matches(loginRequest.getPassword(), user.getPasswordHash())) {
-            throw new ApiException(HttpStatus.UNAUTHORIZED, "Invalid username or password");
+                .orElseThrow(() -> new ApiException(HttpStatus.UNAUTHORIZED, "Invalid username"));
+       
+        if (!user.isEnabled() || !passwordEncoder.matches(loginRequest.getPassword(), user.getPasswordHash())) {
+            throw new ApiException(HttpStatus.UNAUTHORIZED, "Invalid password");
         }
 
         if (user.getOrganization() != null && user.getOrganization().getStatus() != OrganizationStatus.ACTIVE) {
